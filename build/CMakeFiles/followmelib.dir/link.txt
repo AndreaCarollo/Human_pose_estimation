@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfollowmelib.a  CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o CMakeFiles/followmelib.dir/src/lib/utils.cpp.o
+/usr/bin/ranlib libfollowmelib.a
