@@ -6,5 +6,5 @@ CXX_FLAGS =  -g -std=c++14 -pthread
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/opt/intel/openvino_2020.3.194/opencv/include -I/home/andrea/Desktop/tmp2/Human_pose_estimation 
+CXX_INCLUDES = -I/opt/intel/openvino_2020.3.194/opencv/include -I/home/andrea/Desktop/perAlessandro/Human_pose_estimation 
 

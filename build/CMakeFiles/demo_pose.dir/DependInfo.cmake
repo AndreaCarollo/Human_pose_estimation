@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/src/main_demo_pose.cpp" "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/demo_pose.dir/src/main_demo_pose.cpp.o"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/main_demo_pose.cpp" "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/demo_pose.dir/src/main_demo_pose.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,7 +16,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/followmelib.dir/DependInfo.cmake"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

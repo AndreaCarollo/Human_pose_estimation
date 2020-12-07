@@ -14,7 +14,7 @@ void extract_all_keypoints(cv::Mat result, cv::Size targetSize,
     int H = result.size[2];
     int W = result.size[3];
     int nparts = 18;
-    float thresh = 0.14;
+    float thresh = 0.12;
     int keyPointId = 0;
     cv::Size blur_size = cv::Size(3, 3);
     // vector<vector<KeyPoint_pose>> all_keyPoints[18];
@@ -65,7 +65,13 @@ void extract_all_keypoints(cv::Mat result, cv::Size targetSize,
             // cv::minMaxLoc(smoothProbMap.mul(blobMask), 0, &maxVal, 0, &maxLoc);
             cv::minMaxLoc(UheatMap.mul(blobMask), 0, &maxVal, 0, &maxLoc);
 
-            keyPoints.push_back(KeyPoint_pose(maxLoc, heatMap.at<float>(maxLoc.y, maxLoc.x)));
+            KeyPoint_pose tmp_point = KeyPoint_pose(maxLoc, heatMap.at<float>(maxLoc.y, maxLoc.x));
+            if (contours[i].size() > 5)
+            {
+                cv::RotatedRect ellipse_contour = fitEllipse(contours[i]);
+                tmp_point.ellipse = ellipse_contour;
+            }
+            keyPoints.push_back(tmp_point);
         }
 
         // give a unic id number to all points
@@ -104,17 +110,8 @@ void extract_all_keypoints_test(cv::Mat result, cv::Size targetSize,
         cv::UMat UresizedHeatMap;
         cv::resize(UheatMap, UresizedHeatMap, targetSize);
 
-        // double min, max;
-        // cv::minMaxLoc(heatMap, &min, &max);
-        // cout <<"min : " << min << " -- max : " << max << endl;
-        // cv::Mat heatMap_1 = UresizedHeatMap.getMat(cv::ACCESS_WRITE);
-
-        //UheatMap.copyTo(heatMap);
-
         cv::UMat UsmoothProbMap;
         cv::GaussianBlur(UresizedHeatMap, UsmoothProbMap, blur_size, 0, 0);
-        // cv::Mat smoothProbMap;
-        // UsmoothProbMap.copyTo(smoothProbMap);
 
         cv::UMat UmaskedProbMap;
         cv::threshold(UsmoothProbMap, UmaskedProbMap, thresh, 255, cv::THRESH_BINARY);
@@ -122,56 +119,13 @@ void extract_all_keypoints_test(cv::Mat result, cv::Size targetSize,
         UmaskedProbMap.copyTo(maskedProbMap);
 
         maskedProbMap.convertTo(maskedProbMap, CV_8U, 1);
-        // Mat element = getStructuringElement(MORPH_ELLIPSE,
-        //                                     Size(2 * 6 + 1, 2 * 6 + 1),
-        //                                     Point(6, 6));
-        // int erosize = 12;
-        // Mat element2 = getStructuringElement(MORPH_ELLIPSE,
-        //                                      Size(2 * erosize + 1, 2 * erosize + 1),
-        //                                      Point(erosize, erosize));
-        // // dilate(maskedProbMap, maskedProbMap, element2);
-        // erode(maskedProbMap, maskedProbMap, element2);
 
         std::vector<std::vector<cv::Point>> contours;
         cv::findContours(maskedProbMap, contours, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
-        // cv::Mat img_display;
-        // UresizedHeatMap.copyTo(img_display);
-
         for (int i = 0; i < contours.size(); i++)
         {
 
-            // get rectangle bounding of the contour
-            // vector<Point> contour_poly;
-            // cv::approxPolyDP(contours[i], contour_poly, 3, true);
-            // cv::Rect contour_rect = cv::boundingRect(contours[i]);
-            // int tmp_w, tmp_h;
-            // cv::Mat cov, mu;
-            // cv::Mat cutted_heat_map;
-            // if (!contour_rect.empty())
-            // {
-            // if(contour_rect.width > contour_rect.height){
-            //     tmp_h = contour_rect.width;
-            //     tmp_w = contour_rect.width;
-            // }
-            // else{
-            //     tmp_w = contour_rect.height;
-            //     tmp_h = contour_rect.height;
-            // }
-            // cv::Rect roi_cov = cv::Rect(contour_rect.x,contour_rect.y,contour_rect.width,contour_rect.height);
-
-            // UresizedHeatMap(roi_cov).copyTo(cutted_heat_map);
-
-            // UresizedHeatMap(contour_rect).copyTo(cutted_heat_map);
-            // cv::Mat res_cutted_heat_map;
-            // resize(cutted_heat_map, res_cutted_heat_map, Size(2, 2), 0, 0, cv::INTER_LINEAR);
-            // cv::calcCovarMatrix(res_cutted_heat_map, cov, mu, cv::COVAR_ROWS, CV_32FC1);
-            // cov = cov / (res_cutted_heat_map.rows - 1);
-            // // cov = cov / (cutted_heat_map.rows - 1);
-            // // cov = cov.mul(1/(cutted_heat_map.rows - 1));
-            // cv::Mat eigVec = cv::Mat(2, 2, CV_32FC1);
-            // cv::Mat eigVal = cv::Mat(1, 2, CV_32FC1);
-            // cv::eigen(cov, eigVal, eigVec);
             if (n == NOSE || n == NECK || n == LEFT_EAR || n == LEFT_EYE || n == RIGHT_EAR || n == RIGHT_EYE)
             {
                 if (contours[i].size() < 10)
@@ -772,11 +726,27 @@ void plot_all_skeleton(cv::Mat *img, std::vector<std::vector<int>> personwiseKey
 
             if (white)
             {
-                cv::line((*img), kpA.point, kpB.point, cv::Scalar(255, 255, 255), 3, cv::LINE_AA);
+                cv::line((*img), kpA.point, kpB.point, cv::Scalar(255, 255, 255), 2, cv::LINE_AA);
+                try
+                {
+                    cv::ellipse((*img), kpA.ellipse, cv::Scalar(0, 0, 255), 1, 8);
+                }
+                catch (const std::exception &e)
+                {
+                    // std::cerr << e.what() << '\n';
+                }
+                try
+                {
+                    cv::ellipse((*img), kpB.ellipse, cv::Scalar(0, 0, 255), 1, 8);
+                }
+                catch (const std::exception &e)
+                {
+                    // std::cerr << e.what() << '\n';
+                }
             }
             else
             {
-                cv::line((*img), kpA.point, kpB.point, colors_left_right[i], 3, cv::LINE_AA);
+                cv::line((*img), kpA.point, kpB.point, colors_left_right[i], 2, cv::LINE_AA);
             }
         }
     }

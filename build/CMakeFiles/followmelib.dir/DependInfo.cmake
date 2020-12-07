@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/src/lib/dnn_loader.cpp" "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o"
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/src/lib/pose_basic.cpp" "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o"
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/src/lib/pose_extractor.cpp" "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o"
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/src/lib/pose_utils.cpp" "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o"
-  "/home/andrea/Desktop/tmp2/Human_pose_estimation/src/lib/utils.cpp" "/home/andrea/Desktop/tmp2/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/utils.cpp.o"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp" "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp" "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp" "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp" "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o"
+  "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.cpp" "/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/src/lib/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

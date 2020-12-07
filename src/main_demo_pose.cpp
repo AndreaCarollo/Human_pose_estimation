@@ -13,6 +13,7 @@ int main()
 {
 
     string video_path = "";
+    // cv::VideoCapture cap("../group.jpg");
     cv::VideoCapture cap(-1);
 
     if (!cap.isOpened())
@@ -26,10 +27,10 @@ int main()
     //_______ POSE ESTIMATION: load neural network and config ______________________________________
     cv::dnn::Net network_pose;
 
-    // std::string model_POSE = "/home/andrea/openvino_models/ir/intel/human-pose-estimation-0001/FP32/human-pose-estimation-0001.xml";
-    // std::string config_POSE = "/home/andrea/openvino_models/ir/intel/human-pose-estimation-0001/FP32/human-pose-estimation-0001.bin";
-    std::string model_POSE = "path/to/the/model/human-pose-estimation-0001.xml";
-    std::string config_POSE = "path/to/the/weigth/human-pose-estimation-0001.bin";
+    std::string model_POSE = "/home/andrea/openvino_models/ir/intel/human-pose-estimation-0001/FP32/human-pose-estimation-0001.xml";
+    std::string config_POSE = "/home/andrea/openvino_models/ir/intel/human-pose-estimation-0001/FP32/human-pose-estimation-0001.bin";
+    // std::string model_POSE = "path/to/the/model/human-pose-estimation-0001.xml";
+    // std::string config_POSE = "path/to/the/weigth/human-pose-estimation-0001.bin";
 
     load_net_pose(&network_pose, model_POSE, config_POSE);
 
@@ -70,13 +71,12 @@ int main()
                                     keyPointsList, &poses, &display_img);
         }
 
-        plot_skeleton(&display_img, User_pose, keyPointsList);
         plot_all_skeleton(&display_img, poses, keyPointsList, true);
 
         // ------- Display ------------------------------------------------------
         cv::namedWindow("Display window", WINDOW_AUTOSIZE); // Create a window for display.
         cv::imshow("Display window", display_img);
-        int k = waitKey(5);
+        int k = waitKey(10);
         if (k == 27) // or count_frame == 200)
         {
             break;
