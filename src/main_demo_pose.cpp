@@ -73,7 +73,25 @@ int main()
 
         plot_all_skeleton(&display_img, poses, keyPointsList, true);
 
-        // ------- Display ------------------------------------------------------
+        for (int k = 0; k < poses.size(); k++)
+        {
+            auto index_hand = poses[k][RIGHT_WRIST];
+            if (index_hand != -1)
+            {
+                cout << k << " -- hand position " << keyPointsList[index_hand].point << " -- ellipse size " << keyPointsList[index_hand].ellipse.size << endl;
+                try
+                {
+                    cv::ellipse(display_img, keyPointsList[index_hand].ellipse, cv::Scalar(0, 0, 255), 1, 8);
+                }
+                catch (const std::exception &e)
+                {
+                    // std::cerr << e.what() << '\n';
+                }
+                
+            }
+        }
+
+        // ------- Display ---------------------------------------------------------------
         cv::namedWindow("Display window", WINDOW_AUTOSIZE); // Create a window for display.
         cv::imshow("Display window", display_img);
         int k = waitKey(10);

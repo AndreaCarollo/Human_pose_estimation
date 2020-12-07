@@ -727,22 +727,6 @@ void plot_all_skeleton(cv::Mat *img, std::vector<std::vector<int>> personwiseKey
             if (white)
             {
                 cv::line((*img), kpA.point, kpB.point, cv::Scalar(255, 255, 255), 2, cv::LINE_AA);
-                try
-                {
-                    cv::ellipse((*img), kpA.ellipse, cv::Scalar(0, 0, 255), 1, 8);
-                }
-                catch (const std::exception &e)
-                {
-                    // std::cerr << e.what() << '\n';
-                }
-                try
-                {
-                    cv::ellipse((*img), kpB.ellipse, cv::Scalar(0, 0, 255), 1, 8);
-                }
-                catch (const std::exception &e)
-                {
-                    // std::cerr << e.what() << '\n';
-                }
             }
             else
             {
