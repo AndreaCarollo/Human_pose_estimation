@@ -1,5 +1,6 @@
 #include "./pose_basic.h"
 
+
 //   __                  _    _
 //  / _| _  _  _ _   __ | |_ (_) ___  _ _   ___
 // |  _|| || || ' \ / _||  _|| |/ _ \| ' \ (_-<
@@ -66,11 +67,12 @@ void extract_all_keypoints(cv::Mat result, cv::Size targetSize,
             cv::minMaxLoc(UheatMap.mul(blobMask), 0, &maxVal, 0, &maxLoc);
 
             KeyPoint_pose tmp_point = KeyPoint_pose(maxLoc, heatMap.at<float>(maxLoc.y, maxLoc.x));
-            if (contours[i].size() > 5)
-            {
-                cv::RotatedRect ellipse_contour = fitEllipse(contours[i]);
-                tmp_point.ellipse = ellipse_contour;
-            }
+            // if (contours[i].size() > 5)
+            // {
+            //     cv::RotatedRect ellipse_contour = fitEllipse(contours[i]);
+            //     tmp_point.ellipse = ellipse_contour;
+            // }
+            tmp_point.ellipse = generate_cov_ellipse(heatMap, contours[i],tmp_point.point);
             keyPoints.push_back(tmp_point);
         }
 
@@ -744,29 +746,3 @@ std::vector<std::vector<int>> good_skeleton_extraction(std::vector<std::vector<i
 
 //// functions in test
 
-cv::RotatedRect getErrorEllipse(float chisquare_val, cv::Point2f mean, cv::Mat covmat)
-{
-
-    //Get the eigenvalues and eigenvectors
-    cv::Mat eigenvalues, eigenvectors;
-    cv::eigen(covmat, eigenvalues, eigenvectors);
-    // cout << "eigen values : \n" << eigenvalues.at<float>(0) << "\n" << eigenvalues.at<float>(1) << endl;
-
-    //Calculate the angle between the largest eigenvector and the x-axis
-    float angle = atan2(eigenvectors.at<float>(0, 1), eigenvectors.at<float>(0, 0));
-
-    //Shift the angle to the [0, 2pi] interval instead of [-pi, pi]
-    if (angle < 0)
-        angle += 6.28318530718;
-
-    //Conver to degrees instead of radians
-    angle = 180 * angle / 3.14159265359;
-
-    //Calculate the size of the minor and major axes
-    float halfmajoraxissize = chisquare_val * sqrt(eigenvalues.at<float>(0));
-    float halfminoraxissize = chisquare_val * sqrt(eigenvalues.at<float>(1));
-
-    //Return the oriented ellipse
-    //The -angle is used because OpenCV defines the angle clockwise instead of anti-clockwise
-    return cv::RotatedRect(mean, cv::Size2f(halfmajoraxissize, halfminoraxissize), -angle);
-}

@@ -13,12 +13,6 @@ string
 -
 
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
-vector
--
-numeric
--
-cmath
--
 opencv2/opencv.hpp
 -
 opencv2/highgui.hpp
@@ -27,8 +21,16 @@ opencv2/core.hpp
 -
 opencv2/dnn.hpp
 -
+vector
+-
+numeric
+-
+cmath
+-
 utils.h
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.h
+pose_utils.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
 
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
 pose_basic.h
@@ -68,6 +70,8 @@ vector
 opencv2/opencv.hpp
 -
 opencv2/video.hpp
+-
+opencv2/videoio.hpp
 -
 ./lib/dnn_loader.h
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h

@@ -3,18 +3,19 @@
 // | '_ \/ _` |(_-<| |/ _|
 // |_.__/\__,_|/__/|_|\__|
 //
-
-#include <vector>
-#include <numeric>
-#include <cmath>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/core.hpp>
 #include <opencv2/dnn.hpp>
 
-#include "utils.h"
 #ifndef POSE_BASIC
 #define POSE_BASIC
+#include <vector>
+#include <numeric>
+#include <cmath>
+
+#include "utils.h"
+#include "pose_utils.h"
 
 using namespace cv;
 using namespace std;
@@ -143,6 +144,6 @@ std::vector<std::vector<int>> good_skeleton_extraction(std::vector<std::vector<i
 
 //// functions in test
 
-cv::RotatedRect getErrorEllipse(float chisquare_val, cv::Point2f mean, cv::Mat covmat);
+// cv::RotatedRect getErrorEllipse(float chisquare_val, cv::Point2f mean, cv::Mat covmat);
 
 #endif

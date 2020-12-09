@@ -1,6 +1,7 @@
 // my libraries
 #include <opencv2/opencv.hpp>
 #include <opencv2/video.hpp>
+#include <opencv2/videoio.hpp>
 
 #include "./lib/dnn_loader.h"
 #include "./lib/pose_extractor.h"

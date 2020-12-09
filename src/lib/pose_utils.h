@@ -15,49 +15,6 @@ using namespace std; // standard
 using namespace cv;  // openCV
 using namespace dnn; // deep neural network
 
-// Class human pose (collector of points and data)
-class human_pose
-{
-private:
-    /* data */
-    int npairs = 17;
-    int nparts = 18;
-    float thresh = 0.2;
-
-public:
-    cv::Mat HeatMap;
-    cv::Mat Pafs;
-    std::vector<cv::Point> keypoints;
-    std::vector<std::vector<cv::Point>> all_keypoints;
-    std::vector<cv::Point3d> keypoints_3D;
-
-    int H, W; // need for extract keypoints & draw pose
-
-    // bit gesture
-    // HANDS_UP '\1'
-
-    uint8_t gesture;
-
-    // Given the matrix output of the network, extract the point for 1 body
-    // >> TODO: modify in order to get all the skeleton in the frame
-    void extract_keypoints(cv::Mat result);
-    void extract_all_keypoints(cv::Mat result);
-
-    // Given the 2D points on the RGB frame, obtain the 3rd coordinate from the depth map
-    // and convert all the pose in real measurement -> meters (not pixels)
-    // >> TODO: get point depth from realsense
-    void extract_keypoints_3D(); // using the depth + informations of scale to real measure
-
-    cv::Point get_body_kp(int idx); // save points from the vector to the class
-
-    // return true if the operator rises both the hands over the shoulders
-    // return false if not or if the detection missed some necessary keypoints
-    bool gesture_activation();
-    void gesture_check();
-
-    // draw pose to image
-    void draw_pose(cv::Mat *display_img);
-};
 
 
 //  _                          _        _                _    _  _
@@ -97,5 +54,11 @@ float distance(cv::Point A, cv::Point B);
 // | _| | || || ' \ / _||  _|| |/ _ \| ' \ (_-<
 // |_|   \_,_||_||_|\__| \__||_|\___/|_||_|/__/
 //                                          
+
+cv::RotatedRect getErrorEllipse(float chisquare_val, cv::Point2f mean, cv::Mat covmat);
+
+cv::RotatedRect generate_cov_ellipse(cv::Mat heatMap, vector<Point> contour, cv::Point2f mean = cv::Point2f(-1,-1));
+
+
 
 #endif

@@ -30,7 +30,7 @@ std::vector<std::vector<int>> get_poses(cv::Mat *img, cv::dnn::Net *network_pose
 
     // extract all points from the heat Map blob
     vector<vector<KeyPoint_pose>> detectedKeypoints;
-    extract_all_keypoints_cov(heatmap_blob, img_size, &detectedKeypoints, keyPointsList,img);
+    extract_all_keypoints(heatmap_blob, img_size, &detectedKeypoints, keyPointsList);
 
     // get valid pairs of keypoints in according to Part Affinity blob
     std::vector<std::vector<ValidPair>> validPairs;
