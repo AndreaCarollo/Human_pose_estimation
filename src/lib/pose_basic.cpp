@@ -271,26 +271,26 @@ void extract_all_keypoints_cov(cv::Mat result, cv::Size targetSize,
     {
         vector<KeyPoint_pose> keyPoints;
         // Slice heatmap of corresponding body's part.
-        Mat heatMap(H, W, CV_32FC1, result.ptr(0, n));
+        Mat heatMap(H, W, CV_32F, result.ptr(0, n));
         cv::UMat UheatMap;
         heatMap.copyTo(UheatMap);
-        cv::UMat UresizedHeatMap;
-        cv::resize(UheatMap, UresizedHeatMap, targetSize, 0, 0, cv::INTER_NEAREST);
+        // cv::UMat UresizedHeatMap;
+        cv::resize(UheatMap, UheatMap, targetSize, 0, 0, cv::INTER_LINEAR);
 
-        cv::UMat UsmoothProbMap;
-        cv::GaussianBlur(UresizedHeatMap, UsmoothProbMap, blur_size, 0, 0);
+        // cv::UMat UsmoothProbMap;
+        // cv::GaussianBlur(UresizedHeatMap, UsmoothProbMap, blur_size, 0, 0);
         cv::Mat smoothProbMap;
-        UsmoothProbMap.copyTo(smoothProbMap);
+        UheatMap.copyTo(heatMap);
 
         cv::UMat UmaskedProbMap;
-        cv::threshold(UsmoothProbMap, UmaskedProbMap, thresh, 255, cv::THRESH_BINARY);
-        cv::Mat maskedProbMap;
-        UmaskedProbMap.copyTo(maskedProbMap);
+        cv::threshold(UheatMap, UmaskedProbMap, thresh, 255, cv::THRESH_BINARY);
+        // cv::Mat maskedProbMap;
+        // UmaskedProbMap.copyTo(maskedProbMap);
 
-        maskedProbMap.convertTo(maskedProbMap, CV_8U, 1);
+        UmaskedProbMap.convertTo(UmaskedProbMap, CV_8U, 1);
 
         std::vector<std::vector<cv::Point>> contours;
-        cv::findContours(maskedProbMap, contours, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+        cv::findContours(UmaskedProbMap, contours, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
         // cv::Mat img_display;
         // UresizedHeatMap.copyTo(img_display);
@@ -303,118 +303,66 @@ void extract_all_keypoints_cov(cv::Mat result, cv::Size targetSize,
             cv::approxPolyDP(contours[i], contour_poly, 3, true);
             cv::Rect contour_rect = cv::boundingRect(contours[i]);
 
-            int tmp_w, tmp_h;
-            if (!contour_rect.empty())
+            if (contour_rect.empty())
             {
-                if (contour_rect.width > contour_rect.height)
-                {
-                    tmp_h = contour_rect.width;
-                    tmp_w = contour_rect.width;
-                }
-                else
-                {
-                    tmp_w = contour_rect.height;
-                    tmp_h = contour_rect.height;
-                }
+                continue;
             }
-            cv::Rect roi_cov = cv::Rect(contour_rect.x, contour_rect.y, contour_rect.width, contour_rect.height);
-            // contour rect size n*m
-            int n_max = (int)roi_cov.width;
-            int m_max = (int)roi_cov.height;
-            UsmoothProbMap(roi_cov).copyTo(heatmap_crop);
-
-            uchar *data_map = heatmap_crop.data;
 
             // evalaute the means value for each row and col
-            std::vector<float> x_means(m_max);
-            std::vector<float> y_means(n_max);
-            for (int m = 0; m < m_max; m++)
+            std::vector<double> vector_x;
+            std::vector<double> vector_y;
+            std::vector<double> vector_p;
+            for (int m = contour_rect.tl().x; m < contour_rect.tl().x + contour_rect.width; m++)
             {
-                for (int n = 0; n < n_max; n++)
+                for (int n = contour_rect.tl().y; n < contour_rect.tl().y + contour_rect.height; n++)
                 {
-                    x_means[m] += data_map[m * n_max + n] / n_max;
-                    y_means[n] += data_map[m * n_max + n] / m_max;
-                }
-            }
-            // expected value
-            float x_mean = std::accumulate(x_means.begin(), x_means.end(), 0.0) / x_means.size();
-            float y_mean = std::accumulate(y_means.begin(), y_means.end(), 0.0) / y_means.size();
-            // square of expected value
-            float x_mean_2 = x_mean * x_mean;
-            float y_mean_2 = y_mean * y_mean;
-            float xy_mean_2 = x_mean * y_mean;
-
-            vector<float> xy_means;
-            vector<float> xx_means;
-            vector<float> yy_means;
-            for (int k = 0; k < x_means.size(); k++)
-            {
-                xx_means.push_back(x_means[k] * x_means[k]);
-                yy_means.push_back(y_means[k] * y_means[k]);
-                xy_means.push_back(x_means[k] * y_means[k]);
-            }
-            float cov_xx = std::accumulate(xx_means.begin(), xx_means.end(), 0.0) / xx_means.size() - x_mean_2;
-            float cov_yy = std::accumulate(yy_means.begin(), yy_means.end(), 0.0) / yy_means.size() - y_mean_2;
-            float cov_xy = std::accumulate(xy_means.begin(), xy_means.end(), 0.0) / xy_means.size() - xy_mean_2;
-            // covariance matrix
-            float data[4] = {cov_xx, cov_xy, cov_xy, cov_yy};
-            cv::Mat cov_matrix = cv::Mat(2, 2, CV_32F, data);
-            // std::cout << "cov Matrix : " << cov_matrix << std::endl;
-            // centre of ellipse
-            cv::Point centre = getCentre_rect(contour_rect);
-            //Calculate the error ellipse for a 95% confidence interval ( 2.4477 )
-            cv::RotatedRect ellipse = getErrorEllipse(2.0, centre, cov_matrix);
-
-            ellissi.push_back(ellipse);
-
-            // evaluate the position of the keypoint inside the ellipse
-            cv::Rect ellipse_rect = ellipse.boundingRect();
-            resizeRect(&ellipse_rect, targetSize.width, targetSize.height);
-            auto ellipse_a = ellipse.size.width / 2;
-            auto ellipse_b = ellipse.size.height / 2;
-
-            auto ellipse_centre = ellipse.center;
-            auto ellipse_angle = ellipse.angle;
-            auto tl = ellipse_rect.tl();
-
-            float x_keypoint = 0;
-            float y_keypoint = 0;
-            float prob_keypoint = 0;
-            int counter = 0;
-
-            for (int i = 0; i < ellipse_rect.width; i++)
-            {
-                /* code */
-                for (int k = 0; k < ellipse_rect.height; k++)
-                {
-                    /* code */
-                    auto point = tl + cv::Point(i, k);
-                    auto distance = sqrt((point.x - ellipse_centre.x) * (point.x - ellipse_centre.x) + (point.y - ellipse_centre.y) * (point.y - ellipse_centre.y));
-                    auto alpha_angle = atan2((point.y - ellipse_centre.y), (point.x - ellipse_centre.x));
-                    auto point_ellipse = ellipse_centre + cv::Point2f(ellipse_b * cos(alpha_angle + ellipse_angle), ellipse_a * sin(alpha_angle + ellipse_angle));
-                    auto distance_max = sqrt((point_ellipse.x - ellipse_centre.x) * (point_ellipse.x - ellipse_centre.x) + (point_ellipse.y - ellipse_centre.y) * (point_ellipse.y - ellipse_centre.y));
-                    if (img_rect.contains(point))
+                    if (cv::pointPolygonTest(contours[i], cv::Point(m, n), false) >= 0)
                     {
-                        float prob = smoothProbMap.at<double>(point);
-                        if (distance < distance_max & prob < INFINITY)
-                        {
-                            counter++;
-                            // float prob = heatMap.at<double>(point);
-                            x_keypoint += ((float)point.x) * prob;
-                            y_keypoint += ((float)point.y) * prob;
-                            prob_keypoint += prob;
-                        }
+                        vector_x.push_back(m);
+                        vector_y.push_back(n);
+                        vector_p.push_back(heatMap.at<double>(m, n));
                     }
                 }
             }
-            x_keypoint /= prob_keypoint;
-            y_keypoint /= prob_keypoint;
-            prob_keypoint /= counter;
-            // cout << "prob : " << prob_keypoint << endl;
-            if (x_keypoint > 0 & y_keypoint > 0)
+
+            // expected value
+            float x_mean = 0.0;
+            float y_mean = 0.0;
+            float p_tot = 0.0;
+            for (int k = 0; k < vector_x.size(); k++)
             {
-                punti.push_back(cv::Point((int)x_keypoint, (int)y_keypoint));
-                KeyPoint_pose tmp_point = KeyPoint_pose(cv::Point((int)x_keypoint, (int)y_keypoint), prob_keypoint);
+                x_mean += vector_x[k] * vector_p[k];
+                y_mean += vector_y[k] * vector_p[k];
+                p_tot += vector_p[k];
+            }
+            x_mean /= p_tot;
+            y_mean /= p_tot;
+
+            float cov_xx = 0;
+            float cov_yy = 0;
+            float cov_xy = 0;
+            for (int k = 0; k < vector_x.size(); k++)
+            {
+                cov_xx += (vector_x[k] - x_mean) * (vector_x[k] - x_mean) * vector_p[k];
+                cov_yy += (vector_y[k] - y_mean) * (vector_y[k] - y_mean) * vector_p[k];
+                cov_xy += (vector_x[k] - x_mean) * (vector_y[k] - y_mean) * vector_p[k];
+            }
+            cov_xx /= p_tot;
+            cov_yy /= p_tot;
+            cov_xy /= p_tot;
+            // covariance matrix
+            float data[4] = {cov_xx, cov_xy, cov_xy, cov_yy};
+            cv::Mat cov_matrix = cv::Mat(2, 2, CV_32F, data);
+            std::cout << n << " - cov Matrix : " << cov_matrix << std::endl;
+            // centre of ellipse
+            //Calculate the error ellipse for a 95% confidence interval ( 2.4477 )
+            cv::RotatedRect ellipse = getErrorEllipse(2.4477, cv::Point(x_mean, y_mean), cov_matrix);
+            cout << ellipse.size << endl;
+
+            if (x_mean > 0 & x_mean<img->size().width & y_mean> 0 & y_mean < img->size().height)
+            {
+                punti.push_back(cv::Point((int)x_mean, (int)y_mean));
+                KeyPoint_pose tmp_point = KeyPoint_pose(cv::Point((int)x_mean, (int)y_mean), heatMap.at<double>((int)x_mean, (int)y_mean));
                 tmp_point.ellipse = ellipse;
                 keyPoints.push_back(tmp_point);
             }
@@ -453,12 +401,6 @@ void extract_all_keypoints_cov(cv::Mat result, cv::Size targetSize,
             cv::circle((*img), punti[i], 3, cv::Scalar(255, 255, 0), 1, 8);
         }
     }
-    // cv::imshow("test ellissi", img);
-    // int k = waitKey(10);
-    // if (k == 32) // space = pause
-    // {
-    //     waitKey(0);
-    // }
 };
 
 //_______________________________________________________________________________________

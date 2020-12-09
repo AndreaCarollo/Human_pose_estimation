@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp
-./pose_basic.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
+opencv2/dnn.hpp
+-
+string
+-
 
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
 vector
@@ -27,6 +29,36 @@ opencv2/dnn.hpp
 -
 utils.h
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.h
+
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp
+pose_extractor.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
+
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
+pose_basic.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
+pose_utils.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
+dnn_loader.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
+
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
+opencv2/dnn.hpp
+-
+opencv2/highgui.hpp
+-
+opencv2/core.hpp
+-
+opencv2/opencv.hpp
+-
+iostream
+-
+string
+-
+math.h
+-
+pose_basic.h
+/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
 
 /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.h
 opencv2/opencv.hpp
