@@ -62,7 +62,7 @@ int main()
         // >>>>> Pose Extraction
         std::vector<KeyPoint_pose> keyPointsList;
         // poses contains vectors of index of the point inside \keyPointsList
-        std::vector<std::vector<int>> poses = get_poses(&img, &network_pose, &keyPointsList, 2, true);
+        std::vector<std::vector<int>> poses = get_poses(&img, &network_pose, &keyPointsList, 1, true);
 
         // given a rectangle, extract the body pose inside it
         std::vector<int> User_pose = nullpose;
