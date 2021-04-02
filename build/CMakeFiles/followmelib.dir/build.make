@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrea/Desktop/perAlessandro/Human_pose_estimation
+CMAKE_SOURCE_DIR = "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build
+CMAKE_BINARY_DIR = "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/followmelib.dir/depend.make
@@ -59,68 +59,68 @@ include CMakeFiles/followmelib.dir/flags.make
 
 CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o: CMakeFiles/followmelib.dir/flags.make
 CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o: ../src/lib/dnn_loader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o -c /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.o -c "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp"
 
 CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp > CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp" > CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.i
 
 CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp -o CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.cpp" -o CMakeFiles/followmelib.dir/src/lib/dnn_loader.cpp.s
 
 CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o: CMakeFiles/followmelib.dir/flags.make
 CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o: ../src/lib/pose_basic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o -c /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.o -c "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp"
 
 CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp > CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp" > CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.i
 
 CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp -o CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_basic.cpp" -o CMakeFiles/followmelib.dir/src/lib/pose_basic.cpp.s
 
 CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o: CMakeFiles/followmelib.dir/flags.make
 CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o: ../src/lib/pose_extractor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o -c /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.o -c "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp"
 
 CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp > CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp" > CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.i
 
 CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp -o CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.cpp" -o CMakeFiles/followmelib.dir/src/lib/pose_extractor.cpp.s
 
 CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o: CMakeFiles/followmelib.dir/flags.make
 CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o: ../src/lib/pose_utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o -c /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o -c "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp"
 
 CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp > CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp" > CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.i
 
 CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp -o CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_utils.cpp" -o CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.s
 
 CMakeFiles/followmelib.dir/src/lib/utils.cpp.o: CMakeFiles/followmelib.dir/flags.make
 CMakeFiles/followmelib.dir/src/lib/utils.cpp.o: ../src/lib/utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/followmelib.dir/src/lib/utils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/utils.cpp.o -c /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/followmelib.dir/src/lib/utils.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/followmelib.dir/src/lib/utils.cpp.o -c "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/utils.cpp"
 
 CMakeFiles/followmelib.dir/src/lib/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/followmelib.dir/src/lib/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.cpp > CMakeFiles/followmelib.dir/src/lib/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/utils.cpp" > CMakeFiles/followmelib.dir/src/lib/utils.cpp.i
 
 CMakeFiles/followmelib.dir/src/lib/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/followmelib.dir/src/lib/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.cpp -o CMakeFiles/followmelib.dir/src/lib/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/utils.cpp" -o CMakeFiles/followmelib.dir/src/lib/utils.cpp.s
 
 # Object files for target followmelib
 followmelib_OBJECTS = \
@@ -140,7 +140,7 @@ libfollowmelib.a: CMakeFiles/followmelib.dir/src/lib/pose_utils.cpp.o
 libfollowmelib.a: CMakeFiles/followmelib.dir/src/lib/utils.cpp.o
 libfollowmelib.a: CMakeFiles/followmelib.dir/build.make
 libfollowmelib.a: CMakeFiles/followmelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libfollowmelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libfollowmelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/followmelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/followmelib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -154,6 +154,6 @@ CMakeFiles/followmelib.dir/clean:
 .PHONY : CMakeFiles/followmelib.dir/clean
 
 CMakeFiles/followmelib.dir/depend:
-	cd /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andrea/Desktop/perAlessandro/Human_pose_estimation /home/andrea/Desktop/perAlessandro/Human_pose_estimation /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation" "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation" "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build" "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build" "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles/followmelib.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/followmelib.dir/depend
 

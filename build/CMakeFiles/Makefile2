@@ -54,10 +54,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrea/Desktop/perAlessandro/Human_pose_estimation
+CMAKE_SOURCE_DIR = "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build
+CMAKE_BINARY_DIR = "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -75,7 +75,7 @@ clean: CMakeFiles/demo_pose.dir/clean
 CMakeFiles/followmelib.dir/all:
 	$(MAKE) -f CMakeFiles/followmelib.dir/build.make CMakeFiles/followmelib.dir/depend
 	$(MAKE) -f CMakeFiles/followmelib.dir/build.make CMakeFiles/followmelib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target followmelib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=3,4,5,6,7,8 "Built target followmelib"
 .PHONY : CMakeFiles/followmelib.dir/all
 
 # Include target in all.
@@ -85,9 +85,9 @@ all: CMakeFiles/followmelib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/followmelib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/followmelib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" 0
 .PHONY : CMakeFiles/followmelib.dir/rule
 
 # Convenience name for target.
@@ -107,7 +107,7 @@ CMakeFiles/followmelib.dir/clean:
 CMakeFiles/demo_pose.dir/all: CMakeFiles/followmelib.dir/all
 	$(MAKE) -f CMakeFiles/demo_pose.dir/build.make CMakeFiles/demo_pose.dir/depend
 	$(MAKE) -f CMakeFiles/demo_pose.dir/build.make CMakeFiles/demo_pose.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles --progress-num=1,2 "Built target demo_pose"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" --progress-num=1,2 "Built target demo_pose"
 .PHONY : CMakeFiles/demo_pose.dir/all
 
 # Include target in all.
@@ -117,9 +117,9 @@ all: CMakeFiles/demo_pose.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/demo_pose.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/demo_pose.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrea/Desktop/perAlessandro/Human_pose_estimation/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/build/CMakeFiles" 0
 .PHONY : CMakeFiles/demo_pose.dir/rule
 
 # Convenience name for target.

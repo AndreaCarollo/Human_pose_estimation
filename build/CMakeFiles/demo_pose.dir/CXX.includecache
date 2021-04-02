@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
 opencv2/dnn.hpp
 -
 string
 -
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
 opencv2/opencv.hpp
 -
 opencv2/highgui.hpp
@@ -28,19 +28,19 @@ numeric
 cmath
 -
 utils.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/utils.h
 pose_utils.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
 pose_basic.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
 pose_utils.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
 dnn_loader.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_utils.h
 opencv2/dnn.hpp
 -
 opencv2/highgui.hpp
@@ -56,9 +56,9 @@ string
 math.h
 -
 pose_basic.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_basic.h
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/utils.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/utils.h
 opencv2/opencv.hpp
 -
 opencv2/core.hpp
@@ -66,7 +66,7 @@ opencv2/core.hpp
 vector
 -
 
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/main_demo_pose.cpp
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/main_demo_pose.cpp
 opencv2/opencv.hpp
 -
 opencv2/video.hpp
@@ -74,9 +74,9 @@ opencv2/video.hpp
 opencv2/videoio.hpp
 -
 ./lib/dnn_loader.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
 ./lib/pose_extractor.h
-/home/andrea/Desktop/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
+/home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/pose_extractor.h
 
 /opt/intel/openvino_2020.3.194/opencv/include/opencv2/calib3d.hpp
 opencv2/core.hpp
