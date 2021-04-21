@@ -73,6 +73,10 @@ opencv2/video.hpp
 -
 opencv2/videoio.hpp
 -
+opencv2/core/ocl.hpp
+-
+opencv2/core/optim.hpp
+-
 ./lib/dnn_loader.h
 /home/andrea/Documents/Third Part/perAlessandro/Human_pose_estimation/src/lib/dnn_loader.h
 ./lib/pose_extractor.h
@@ -347,6 +351,10 @@ initializer_list
 /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/neon_utils.hpp
 opencv2/core/cvdef.h
 /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/opencv2/core/cvdef.h
+
+/opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/ocl.hpp
+opencv2/core.hpp
+/opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/opencv2/core.hpp
 
 /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/operations.hpp
 cstdio

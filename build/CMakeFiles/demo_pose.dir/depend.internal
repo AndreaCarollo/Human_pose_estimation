@@ -31,6 +31,7 @@ CMakeFiles/demo_pose.dir/src/main_demo_pose.cpp.o
  /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/mat.inl.hpp
  /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/matx.hpp
  /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/neon_utils.hpp
+ /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/ocl.hpp
  /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/operations.hpp
  /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/optim.hpp
  /opt/intel/openvino_2020.3.194/opencv/include/opencv2/core/ovx.hpp

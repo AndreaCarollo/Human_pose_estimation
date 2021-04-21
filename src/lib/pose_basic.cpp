@@ -430,25 +430,13 @@ vector<cv::Mat> getValidPairs(cv::Mat paf_blob, cv::Size img_size,
     cv::Rect img_rect = cv::Rect(cv::Point(), img_size);
 
     // from learn opencv:
-    int nInterpSamples = 10;
-    float pafScoreTh = 0.1;
-    float confTh = 0.70;
-
-    // my tests
     // int nInterpSamples = 10;
-    // float pafScoreTh = 0.10;
-    // float confTh = 0.550;
-
-    // int nInterpSamples = 10;
-    // float pafScoreTh = 0.1;
-    // float confTh = 0.45;
-
-    // int nInterpSamples = 20;
     // float pafScoreTh = 0.1;
     // float confTh = 0.70;
-    // int nInterpSamples = 100;
-    // float pafScoreTh = 0.2;
-    // float confTh = 0.5;
+
+    int nInterpSamples = 20;
+    float pafScoreTh = 0.20;
+    float confTh = 0.85;
 
     int H = paf_blob.size[2];
     int W = paf_blob.size[3];
@@ -671,6 +659,39 @@ void plot_all_skeleton(cv::Mat *img, std::vector<std::vector<int>> personwiseKey
             if (white)
             {
                 cv::line((*img), kpA.point, kpB.point, cv::Scalar(255, 255, 255), 2, cv::LINE_AA);
+            }
+            else
+            {
+                cv::line((*img), kpA.point, kpB.point, colors_left_right[i], 2, cv::LINE_AA);
+            }
+        }
+    }
+}
+
+
+void plot_all_skeleton_single_color(cv::Mat *img, std::vector<std::vector<int>> personwiseKeypoints,
+                       std::vector<KeyPoint_pose> keyPointsList, cv::Scalar color)
+                       {
+
+    for (int i = 0; i < 17; i++)
+    {
+        for (int n = 0; n < personwiseKeypoints.size(); ++n)
+        {
+            const std::pair<int, int> &posePair = posePairs[i];
+            int indexA = personwiseKeypoints[n][posePair.first];
+            int indexB = personwiseKeypoints[n][posePair.second];
+
+            if (indexA == -1 || indexB == -1)
+            {
+                continue;
+            }
+
+            KeyPoint_pose &kpA = keyPointsList[indexA];
+            KeyPoint_pose &kpB = keyPointsList[indexB];
+
+            if (color != cv::Scalar(0,0,0))
+            {
+                cv::line((*img), kpA.point, kpB.point,color, 2, cv::LINE_AA);
             }
             else
             {

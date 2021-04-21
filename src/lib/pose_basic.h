@@ -136,6 +136,9 @@ void getPersonwiseKeypoints(const std::vector<std::vector<ValidPair>> &validPair
 void plot_all_skeleton(cv::Mat *img, std::vector<std::vector<int>> personwiseKeypoints,
                        std::vector<KeyPoint_pose> keyPointsList, bool white = false);
 
+void plot_all_skeleton_single_color(cv::Mat *img, std::vector<std::vector<int>> personwiseKeypoints,
+                       std::vector<KeyPoint_pose> keyPointsList, cv::Scalar color = cv::Scalar(0,0,0));
+
 void plot_skeleton(cv::Mat *img, std::vector<int> personwiseKeypoints,
                    std::vector<KeyPoint_pose> keyPointsList, bool white = false);
 
